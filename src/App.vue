@@ -1,26 +1,34 @@
 <template>
+  <section>
+  <NavbarComp/>
   <router-view/>
+  <FooterComp/>
+
+  </section>
 </template>
 
+<script>
+import NavbarComp from '@/components/NavbarComp.vue'
+import FooterComp from './components/FooterComp.vue';
+
+export default {
+  component:{
+      NavbarComp,
+      FooterComp
+    }
+  }
+</script>
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Noto Serif", serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
 }
 
-nav {
-  padding: 30px;
+body::-webkit-scrollbar {
+display: none;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

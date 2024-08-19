@@ -1,13 +1,177 @@
 <template>
-  
+   <section class="inner-home-sect">
+    <nav class="navbar">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/product">Products</router-link>|
+    <router-link to="/">Home</router-link>
+    <router-link to="/contact">Contact Us</router-link>
+    <router-link to="/about">About Us</router-link>|
+    <router-link to="/admin">Admin</router-link>
+  </nav>
+      <div class="carousel">
+          <div class="text">
+            <h1 class="text-h1">
+              Indulge in <br>a world filled <br> with scents
+            </h1>
+            <h4 class="text-h4">with us, at Le Luxe</h4>
+          </div>
+          <div class="img">
+            <img :src="picture" alt="CK" class="picture"/>
+          </div>
+      </div>
+      <div class="h2-text">
+        <h2>SHOP FOR HIM OR HER</h2>
+      </div>
+      <div class="him-her">
+        <div class="her">
+          <div class="them">
+            <img :src="picture" alt="CK" class="picture"/>
+          </div>
+          <div class="them-text">
+            <h4>FOR HER</h4>
+          </div>
+        </div>
+        <div class="him">
+          <div class="them">
+            <img :src="picture" alt="CK" class="picture"/>
+          </div>
+          <div class="them-text">
+            <h4>FOR HIM</h4>
+          </div>
+        </div>
+      </div>
+      <div class="h2">
+        <h2>Some of our best selling items</h2>
+      </div>
+      <div class="products">
+        <div class="product">
+          <div class="product-img">
+          <img :src="picture" alt="CK" class="picture"/>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-img">
+          <img :src="picture" alt="CK" class="picture"/>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-img">
+          <img :src="picture" alt="CK" class="picture"/>
+          </div>
+        </div>
+      </div>
+  </section>
 </template>
 
 <script>
-export default {
 
+export default {
+  data() {
+      return {
+        picture: 'https://demilee06.github.io/Node-Images/CocoChanel.jpg'
+      }
+    }
 }
 </script>
 
-<style>
+<style scoped>
+  *{
+    margin: 0;
+  }
+  .inner-home-sect{
+    height: 100%;
+    background-color: #FFBF69;
+  }
+  .navbar{
+    background-color: #CB997E;
+  }
+  .carousel{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .picture{
+    width: 30vw;
+  }
+  .text{
+    background-color: #FFE8D6;
+  }
+  .text-h1{
+    font-family: "Noto Serif", serif;
+    font-weight: 590;
+    font-size: 4rem;
+    color: black;
+    text-align: left;
+    padding: 4rem;
+  }
+  .text-h4{
+    font-family: "Noto Serif", serif;
+    color: black;
+    text-align: left;
+    margin-left: 4rem;
+  }
+  .img{
+    background-color: #F5B583;
+  }
+  .him-her{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    filter: grayscale(100%);  
+    transition: filter 0.4s;
+  }
+  .him-her:hover{
+    filter: none;
+  }
+  .h2-text{
+    font-family: "Noto Serif", serif;
+    font-size: 2rem;
+    color: black; 
+    text-align: center;
+    padding: 4rem;
+  }
+  .them-text{
+    font-family: "Noto Serif", serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: black;
+    padding: 1rem;
+  }
+  .h2{
+    font-family: "Noto Serif", serif;
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    padding: 4rem;
+  }
+  .products{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 
+  @media screen and (max-width: 300px){
+    .text-h1{
+      font-size: 1rem;
+      padding: 1rem;
+    }
+    .text-h4{
+      font-size: 0.6rem;
+      padding: 0rem;
+      margin-left: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .picture{
+      width: 30vw;
+    }
+    .h2-text{
+      font-size: 1rem;
+      padding: 0.9rem;
+    }
+    .h2{
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+    .them-text{
+      font-size: 0.6rem;
+      padding: 0.3rem;
+    }
+  }
 </style>
