@@ -13,16 +13,13 @@
       <div class="contact-page">
          <div class="form-sec">
             <form action="https://formspree.io/f/mnnabbvv" method="POST">
-               <label>
-                  Your email:
-                  <input type="email" name="email">
-               </label>
-               <label>
-                  Your message:
-                  <textarea name="message"></textarea>
-               </label>
+               <br><label>Your Name: <input type="name" name="name"></label><br>
+               <br><label>Your Number: <input type="phone number" name="phone number"></label><br>
+               <br><label>Your Email: <input type="email" name="email"></label><br>
+               <br><label>Your Message: <textarea name="message"></textarea></label><br>
+               <br>
+                <button type="reset" class="clear-btn">Clear</button>
                 <button type="submit">Send</button>
-                <button type="reset">Clear</button>
          </form>
          </div>
          <div class="contact-sec"></div>
@@ -49,5 +46,11 @@ export default {
 .contact-page{
    display: grid;
    grid-template-columns: repeat(2, 1fr)
+}
+.form-sec{
+   background-color: #F5B583;
+   width: 30rem;
+   padding: 2rem;
+   margin-left: 10vw;
 }
 </style>

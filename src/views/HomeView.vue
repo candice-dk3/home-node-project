@@ -20,7 +20,7 @@
           </div>
       </div>
       <div class="h2-text">
-        <h2>SHOP FOR HIM OR HER</h2>
+        <h2>SHOP FOR HER OR HIM</h2>
       </div>
       <div class="him-her">
         <div class="her">
@@ -115,7 +115,7 @@ export default {
   .him-her{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    filter: grayscale(100%);  
+    filter: grayscale(50%);  
     transition: filter 0.4s;
   }
   .him-her:hover{
