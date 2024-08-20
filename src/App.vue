@@ -1,34 +1,33 @@
 <template>
-  <section>
-  <NavbarComp/>
+  <NavBarComp/>
+  <!-- <HomeView/> -->
   <router-view/>
   <FooterComp/>
-
-  </section>
 </template>
-
 <script>
-import NavbarComp from '@/components/NavbarComp.vue'
+import NavBarComp from './components/NavBarComp.vue';
 import FooterComp from './components/FooterComp.vue';
 
-export default {
-  component:{
-      NavbarComp,
-      FooterComp
-    }
+export default{
+  components:{
+    NavBarComp,
+    FooterComp
   }
+}
+
 </script>
+
 <style>
 #app {
-  font-family: "Noto Serif", serif;;
+  font-family: "Noto Serif", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: black;
 }
-
-body::-webkit-scrollbar {
-display: none;
+*{
+  margin: 0;
 }
-
+body::-webkit-scrollbar{
+  display: none;
+}
 </style>

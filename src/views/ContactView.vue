@@ -1,56 +1,85 @@
 <template>
    <section class="inner-contact-sec">
-      <!-- <NavbarComp/> -->
-      <!-- <nav class="navbar">
-         <router-link to="/">Home</router-link> |
-         <router-link to="/product">Products</router-link>|
-         <router-link to="/">Home</router-link>
-         <router-link to="/contact">Contact Us</router-link>
-         <router-link to="/about">About Us</router-link>|
-         <router-link to="/admin">Admin</router-link>
-      </nav> -->
-      <h3>Let's get in contact</h3>
-      <div class="contact-page">
-         <div class="form-sec">
-            <form action="https://formspree.io/f/mnnabbvv" method="POST">
-               <br><label>Your Name: <input type="name" name="name"></label><br>
-               <br><label>Your Number: <input type="phone number" name="phone number"></label><br>
-               <br><label>Your Email: <input type="email" name="email"></label><br>
-               <br><label>Your Message: <textarea name="message"></textarea></label><br>
-               <br>
-                <button type="reset" class="clear-btn">Clear</button>
-                <button type="submit">Send</button>
-         </form>
+     <div class="contact-h2-sec">
+         <h2 class="contact-h2">Let's get in contact</h2>
+     </div>
+         <div class="contact-sec">
+             <div class="form-sec">
+                 <form action="https://formspree.io/f/xzbnybjb" method="POST" target="blank">
+                 <br><br>
+                 <label class="name">Your Name: <br><input type="email" name="email"></label>
+                 <br>
+                 <label class="name">Your Number: <br><input type="number" name="number"></label>
+                 <br>
+                 <label class="name">Your email: <br><input type="email" name="email"></label>
+                 <br>
+                 <label class="name">Your message: <br><textarea name="message"></textarea></label>
+                 <br><br>
+                 <div class="buttons">
+                     <button type="reset" class="clear-btn">Clear</button>
+                     <button type="submit" class="send-btn">Send</button>
+                 </div>
+                 </form>
+             </div>
+             <div class="contact-us-sec">
+                 <h3>Find us on</h3>
+             </div>
          </div>
-         <div class="contact-sec"></div>
-      </div>
    </section>
-</template>
-
-<script>
-// import NavbarComp from '@/components/NavbarComp.vue';
-
-export default {
-   name: 'ContactUs',
-   // component:{
-   //    NavbarComp
-   // }
-}
-</script>
-
-<style scoped>
-.inner-contact-sec{
-   height: 1000px;
-   background-color: #cb997eb0;
-}
-.contact-page{
-   display: grid;
-   grid-template-columns: repeat(2, 1fr)
-}
-.form-sec{
-   background-color: #F5B583;
-   width: 30rem;
-   padding: 2rem;
-   margin-left: 10vw;
-}
-</style>
+ </template>
+ <script>
+ export default {
+     
+ }
+ </script>
+ <style scoped>
+     .inner-contact-sec{
+         background-color: #cb997ec2;
+         height: 100%;
+         margin-top: 3.9rem;
+     }
+     .contact-sec{
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         /* padding: 4rem; */
+         /* margin-top: 1rem; */
+     }
+     .contact-h2-sec{
+         padding: 3rem;
+     }
+     .contact-h2{
+         color: white;
+         text-align: left;
+         margin-left: 6vw;
+         font-size: 2rem;
+     }
+     /* .form-sec{
+         background-color: #f7f7f7;
+         height: 22rem;
+         width: 30rem;
+     } */
+     .form-sec{
+         background-color: #F5B583;
+         width: 30rem;
+         height: 24rem;
+         padding: 1.2rem;
+         margin-left: 6vw;
+         margin-bottom: 4rem;
+     }
+     .buttons{
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+     }
+     .clear-btn, .send-btn{
+         background-color: transparent;
+         box-shadow: none;
+         color: white;
+         width: 6rem;
+     }
+     .name{
+         color: white;
+     }
+     input{
+         box-shadow: none;
+     }
+ </style>

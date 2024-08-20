@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="inner-admin">
     
     </section>
 </template>
@@ -10,6 +10,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    .inner-admin{
+        margin-top: 3.9rem;
+    }
 </style>
