@@ -27,6 +27,9 @@ export default{
 *{
   margin: 0;
 }
+html{
+    scroll-behavior: smooth;
+}
 body::-webkit-scrollbar{
   display: none;
 }
