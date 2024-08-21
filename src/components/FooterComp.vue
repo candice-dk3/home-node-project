@@ -4,9 +4,9 @@
           <div class="contact-us">
             <a href="/contact" class="contact-h2"><h2 class="contact-text">Contact Us</h2></a>
             <div class="contact-us-details">
-              <h4 class="detail-text">012 345 6789</h4>
-              <h4 class="detail-text">leLuxe@gmail.com</h4>
-              <h4 class="detail-text">314 Imam Haron Road <br>
+              <h4 class="detail-text1">012 345 6789</h4>
+              <h4 class="detail-text2">leLuxe@gmail.com</h4>
+              <h4 class="detail-text3">314 Imam Haron Road <br>
               Lansdown 7764 <br>
               Cape Town</h4>
             </div>
@@ -72,10 +72,15 @@ export default {
   .contact-us-details{
     text-align: start;
     margin-left: 9rem;
+    padding: 1.2rem;
   }
-  .detail-text{
+  .detail-text1, .detail-text2{
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 0.4rem;
+  }
+  .detail-text3{
+    font-size: 1.1rem;
+    padding: 0.4rem;
   }
   .follow-us{
     padding: 3rem;
@@ -120,6 +125,10 @@ export default {
     .contact-us{
         padding: 0rem;
     }
+    .contact-h2{
+      text-align: center;
+
+    }
     .contact-text{
         margin-left: 0rem;
         padding: 0.5rem;
@@ -133,5 +142,8 @@ export default {
     .follow-us{
       padding: 0rem;
     }
+    .detail-text1, .detail-text2, .detail-text3{
+    text-align: center;
+  }
   }
 </style>

@@ -68,8 +68,10 @@
         margin-bottom: 1rem;
      }
     textarea{
-        width: 300px;
+        width: 24rem;
         height: 200px;
+        background-color: #ffffff;
+        border: none;
     }
     form {
         padding: 1.3rem;
@@ -86,12 +88,6 @@
         width: 24rem;
         border: none;
     }
-    textarea{
-        background-color: #ffffff;
-        border: none;
-        width: 24rem;
-        height: 200px;
-    }
     button {
         font-weight: 700;
         border: none;
@@ -105,6 +101,7 @@
     .name{
         width: 250px;
         margin-left: 25px;
+        text-align: start;
     }
     .message{
         height: 200px;
@@ -112,6 +109,20 @@
     }
 
     @media only screen and (max-width: 300px){
-    
+        .contact-sec{
+        grid-template-columns: repeat(1, 1fr);
+        }
+        .form-sec{
+        width: 16rem;
+        }
+        input{
+            width: 13rem;
+        }
+        textarea{
+        width: 13rem;
+        }
+        .name{
+        margin-left: 5px;
+    }
     }
  </style>
