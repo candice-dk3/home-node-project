@@ -18,6 +18,22 @@
              </div>
              <div class="contact-us-sec">
                  <h3>Find us on</h3>
+                 <div class="contact-us-inner-sec">
+                        <div class="social-links">
+                    <div class="social-images">
+                        <div class="email-image"><img :src="email-sec" alt="CK" class="email-sec"/></div>
+                        <div class="insta-image"><img :src="insta-sec" alt="CK" class="insta-sec"/></div>
+                        <div class="facebook-image"> <img :src="facebook-sec" alt="CK" class="facebook-sec"/></div>
+                        <div class="twitter-image"><img :src="twitter-sec" alt="CK" class="twitter-sec"/></div>
+                    </div>
+                    <div class="social-text">
+                        <div class="email-text">leLuxe@gmail.com</div>
+                        <div class="insta-text">le_Luxe</div>
+                        <div class="facebook-text">Le Luxe Offical</div>
+                        <div class="twitter-text">le_luxeSA</div>
+                    </div>
+                </div>
+                 </div>
              </div>
          </div>
    </section>
@@ -107,7 +123,26 @@
         height: 200px;
         margin-bottom: 20px
     }
-
+    .social-links{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+    .social-images{
+        text-align: end;
+        margin-right: 2rem;
+    }
+    .social-text{
+        text-align: start;
+    }
+    .email-text, .insta-text, .facebook-text, .twitter-text{
+        color: white;
+        padding: 1rem;
+    }
+    .email-image, .insta-image, .facebook-image, .twitter-image{
+        padding: 1rem;
+    }
+    
     @media only screen and (max-width: 300px){
         .contact-sec{
         grid-template-columns: repeat(1, 1fr);

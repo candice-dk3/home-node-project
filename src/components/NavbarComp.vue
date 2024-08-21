@@ -12,21 +12,25 @@
           </div>
           <div class="offcanvas-body">
             <div class="navbar-nav">
-              <router-link to="/" class="nav-link">Home</router-link>
-              <router-link to="/product" class="nav-link">Our Products</router-link>
-              <router-link to="/about" class="nav-link">About Us</router-link>
-              <router-link to="/contact" class="nav-link">Contact Us</router-link>
-              <router-link to="/admin" class="nav-link">Admin</router-link>
+              <div class="f-r">
+                  <router-link to="/" class="nav-link">Home</router-link>
+                  <router-link to="/product" class="nav-link">Our Products</router-link>
+              </div>
+              <div class="s-sec"></div>
+              <div class="t-sec">              
+                <router-link to="/about" class="nav-link">About Us</router-link>
+                <router-link to="/contact" class="nav-link">Contact Us</router-link>
+                <router-link to="/admin" class="nav-link">Admin</router-link></div>
             </div>
           </div>
         </div>
-        <div class="navbar-nav" v-if="!isMobile">
+        <!-- <div class="navbar-nav" v-if="!isMobile">
           <router-link to="/" class="nav-link">Home</router-link>
           <router-link to="/product" class="nav-link">Our Products</router-link>
           <router-link to="/about" class="nav-link">About Us</router-link>
           <router-link to="/contact" class="nav-link">Contact Us</router-link>
           <router-link to="/admin" class="nav-link">Admin</router-link>
-        </div>
+        </div> -->
       </div>
     </nav>
   </div>
@@ -75,7 +79,9 @@ export default {
   width: 100%;
 }
 .navbar-nav {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
 }
 
 .navbar-nav .nav-link {
