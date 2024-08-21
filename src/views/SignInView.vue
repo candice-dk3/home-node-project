@@ -1,5 +1,5 @@
 <template>
-   <section>
+   <section class="inner-signIn">
     
 </section>
 </template>
@@ -10,6 +10,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+   .inner-signIn{
+      margin-top: 3.9rem;
+   }
 </style>

@@ -123,7 +123,6 @@ export default {
   .social-text{
     text-align: start;
   }
-
   @media only screen and (max-width: 300px){
     .us{
         display: grid;
