@@ -4,9 +4,9 @@
           <div class="contact-us">
             <a href="/contact" class="contact-h2"><h2 class="contact-text">Contact Us</h2></a>
             <div class="contact-us-details">
-              <h4>012 345 6789</h4>
-              <h4>leLuxe@gmail.com</h4>
-              <h4>314 Imam Haron Road <br>
+              <h4 class="detail-text">012 345 6789</h4>
+              <h4 class="detail-text">leLuxe@gmail.com</h4>
+              <h4 class="detail-text">314 Imam Haron Road <br>
               Lansdown 7764 <br>
               Cape Town</h4>
             </div>
@@ -15,15 +15,9 @@
               <h2 class="follow-us-h2">Follow Us</h2>
               <div class="social-links">
                 <div class="social-images">
-                    <div class="insta-image">
-                          <img :src="insta-sec" alt="CK" class="insta-sec"/>
-                      </div>
-                      <div class="facebook-image">
-                          <img :src="facebook-sec" alt="CK" class="facebook-sec"/>
-                      </div>
-                      <div class="twitter-image">
-                          <img :src="twitter-sec" alt="CK" class="twitter-sec"/>
-                      </div>
+                    <div class="insta-image"><img :src="insta-sec" alt="CK" class="insta-sec"/></div>
+                    <div class="facebook-image"> <img :src="facebook-sec" alt="CK" class="facebook-sec"/></div>
+                    <div class="twitter-image"><img :src="twitter-sec" alt="CK" class="twitter-sec"/></div>
                 </div>
                 <div class="social-text">
                     <div class="insta-text">le_Luxe</div>
@@ -77,7 +71,11 @@ export default {
   }
   .contact-us-details{
     text-align: start;
-    margin-left: 8rem;
+    margin-left: 9rem;
+  }
+  .detail-text{
+    font-size: 1.1rem;
+    padding: 1rem;
   }
   .follow-us{
     padding: 3rem;
@@ -100,6 +98,7 @@ export default {
   }
   .copyright-text h4{
     color: black;
+    font-size: 1rem;
   }
   .social-links{
     display: grid;
