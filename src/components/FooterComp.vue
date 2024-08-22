@@ -130,17 +130,21 @@ export default {
     }
     .contact-us{
         padding: 0rem;
+        width: 100%;
     }
     .contact-h2{
-      text-align: center;
+      text-align: start;
+      padding: 0rem;
+      margin-top: 0.8rem;
 
     }
     .contact-text{
-        margin-left: 0rem;
-        padding: 0.5rem;
+        margin-left: 0.8rem;
+        padding: 0rem;
     }
     .contact-us-details{
         margin-left: 0rem;
+        padding: 1rem;
     }
     .copyright-text h4{
         font-size: 1rem;
@@ -149,7 +153,46 @@ export default {
       padding: 0rem;
     }
     .detail-text1, .detail-text2, .detail-text3{
+    text-align: start;
+  }
+  .follow-us{
+    padding: 0rem;
+    text-align: start;
+    background-color: #FFC79B;
+    width: auto;
+  }
+  .follow-us-h2{
+    color: white;
+    padding: 1rem;
+  }
+  .insta-text, .facebook-text, .twitter-text{
+    color: white;
+    padding: 1.4rem;
+    width: 100%;
+  }
+  .insta-image, .facebook-image, .twitter-image{
+    padding: 1rem;
+  }
+  .insta-sec, .twitter-sec{
+      width: 2rem;
+  }
+  .facebook-sec{
+      width: 3rem;
+  }
+  .copyright-text{
+    margin-top: 2rem;
     text-align: center;
+  }
+  .social-links{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem;
+  }
+  .social-images{
+    text-align: end;
+  }
+  .social-text{
+    margin-right: 3.9rem;
   }
   }
 </style>

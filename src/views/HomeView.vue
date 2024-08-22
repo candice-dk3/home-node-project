@@ -198,9 +198,16 @@ export default {
  }
 
  @media only screen and (max-width: 300px){
+  .carousel{
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+ }
+ .img{
+   background-color: #F5B583;
+ }
    .text-h1{
-     font-size: 1rem;
-     padding: 1rem;
+     font-size: 1.8rem;
+     padding: 1.2rem;
    }
    .text-h4{
      font-size: 0.6rem;
@@ -213,23 +220,30 @@ export default {
    }
    .h2-text{
      font-size: 0.4rem;
-     padding: 0.9rem;
+     padding: 0.5rem;
+     margin-top: 1rem;
    }
    .h2{
      font-size: 1rem;
-     padding: 0.8rem;
+     padding: 0rem;
+     text-align: center;
+     margin-top: 1rem;
    }
    .them-text{
-     font-size: 0.6rem;
-     padding: 0.3rem;
+    text-align: center;
+     font-size: 0.1rem;
+     /* padding: 0.1rem; */
    }
+ 
    .him-her{
     grid-template-columns: repeat(1, 1fr);
+    width: 100% !important
    }
    .women-sec, .men-sec{
     border-radius: 40rem;
     width: 15rem;
     height: 14.5rem;
+    margin-left: 0rem;
    }
    .products{
    grid-template-columns: repeat(1, 1fr);

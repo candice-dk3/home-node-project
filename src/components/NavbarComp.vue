@@ -21,7 +21,7 @@
               <div class="s-sec">
                   <router-link to="/" class="nav-link"><img :src="logo" alt="CK" class="logo"/></router-link>
               </div>
-              <div class="t-sec">              
+              <div class="t-sec">
                 <router-link to="/about" class="nav-link">About Us</router-link>
                 <router-link to="/contact" class="nav-link">Contact Us</router-link>
                 <router-link to="/admin" class="nav-link">Admin</router-link></div>
@@ -32,19 +32,21 @@
     </nav>
   </div>
 </template>
-
 <script>
 export default {
   name: 'NavBarComp',
+  data() {
+    return {
+      logo:'https://github.com/demilee06/Node-Images/blob/main/logo%20(1).png?raw=true'
+    }
+  },
 }
 </script>
-
 <style>
 .offcanvas-body {
   padding: 20px;
   background-color: #CB997E;
 }
-
 .offcanvas-body a {
   font-weight: bold;
   font-size: 18px;
@@ -52,9 +54,8 @@ export default {
   text-decoration: none;
   padding: 10px;
 }
-
-.offcanvas-body a:hover {
-  color: white;
+.offcanvas-body a.router-link-exact-active {
+  color: #FFC400;
   transition-duration: 2sec;
 }
 .navbar{
@@ -65,6 +66,9 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
+}
+.logo{
+  width: 1rem;
 }
 .f-sec{
   display: grid;
@@ -78,7 +82,6 @@ export default {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-
 nav a {
   font-weight: bold;
   font-size: 20px;
@@ -86,40 +89,15 @@ nav a {
   text-decoration: none;
   padding: 1.3rem;
 }
-
-nav a.router-link-exact-active {
-  color: #ffc400;
-}
-nav a:hover{
-  color: white;
-  transition-duration: 1sec;
-}
 .offcanvas-body .f-nav a, .offcanvas-body .s-nav a, .offcanvas-body .t-nav a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-
 .offcanvas-body .f-nav, .offcanvas-body .s-nav, .offcanvas-body .t-nav {
   display: block;
   grid-template-columns: none;
 }
 .offcanvas-body .s-nav {
   display: none;
-}
-@media only screen and (max-width: 300px){
-  .fixed-top{
-    width: 100%;
-  }
-  .navbar{
-    width: 93.1%;
-  }
-  .navbar-nav{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
-  }
-  .offcanvas-body{
-    width: 100%;
-  }
 }
 </style>
