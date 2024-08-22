@@ -61,38 +61,36 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-        <div class="search-sort">
+    <div class="search-sort">
             <div class="sort-by-bar">
                 <label for="Sort-by" class="sort">Sort By: </label>
-                <select id="categoryFilter">
+                <select id="categoryFilter" v-model="selectedCategory">
                     <option value="">All Categories</option>
                     <option value="female perfume">Women</option>
-                    <option value="male cologne">Men</option>
+                    <option value="maleologne">Men</option>
                 </select>
             </div>
             <div class="search-bar">
                 <div id="search-div">
-                    <input type="text" id="searchInput" placeholder="Search...">
-                    <button id="searchButton">Search</button>
+                    <input type="text" id="searchInput" v-model="searchQuery" placeholder="Search...">
+                    <button id="searchButton" @click="searchProducts">Search</button>
                 </div>
             </div>
         </div>
         <div class="products">
-            <CardComp v-for="product in $store.state.products" :key="product.prodID" class="product-card">
-            <template #cardHeader>
-                <img :src="product.prodUrl" :alt="product.prodName" width="180rem" height="auto">
-            </template>
-            <template #cardBody>
-                <h4 class="product-name">{{ product.prodName }}</h4>
-                <p>Amount: {{ product.amount }}</p>
-                <button @click="purchaseAlert(product.prodName)">Purchase</button>
-                <button @click="$router.push(`/singleItem/${product.prodID}`)">View More</button>
-            </template>
-            </CardComp>
-        </div>
-        <div v-for="user in $store.state.users" :key="user.userID" class="user-sec">
-            {{user.userA}}
-            
+            <CardComp v-for="product in filteredProducts" :key="product.prodID" class="product-card">
+               
+                    <template #cardHeader>
+                        <img :src="product.prodUrl" :alt="product.prodName" width="180rem" height="auto">
+                    </template>
+                    <template #cardBody>
+                        <h4 class="product-name">{{ product.prodName }}</h4>
+                        <p>Amount: {{ product.amount }}</p>
+                        <button @click="purchaseAlert(product.prodName)">Purchase</button>
+                        <button @click="$router.push(`/singleItem/${product.prodID}`)">View More</button>
+                    </template>
+                </CardComp>
+           
         </div>
     </section>
 </template>
@@ -105,9 +103,19 @@ export default {
   data() {
     return {
       forHerPicture: 'https://raw.githubusercontent.com/demilee06/Node-Images/main/upper-picture.webp',
-      forHimPicture: 'https://github.com/demilee06/Node-Images/blob/main/lower-card.jpg?raw=true'
+      forHimPicture: 'https://github.com/demilee06/Node-Images/blob/main/lower-card.jpg?raw=true',
+      searchQuery: '',
+      selectedCategory: ''
     }
   },
+  computed: {
+        filteredProducts() {
+            return this.$store.state.products.filter(product => {
+            return product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+                (this.selectedCategory === '' || product.category === this.selectedCategory)
+            })
+        }
+    },
   methods : {
       getProducts() {
           this.$store.dispatch('getProducts')
