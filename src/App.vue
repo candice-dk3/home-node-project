@@ -1,6 +1,5 @@
 <template>
   <NavBarComp/>
-  <!-- <HomeView/> -->
   <router-view/>
   <FooterComp/>
 </template>

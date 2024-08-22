@@ -8,7 +8,7 @@
            <h4 class="text-h4">with us, at Le Luxe</h4>
          </div>
          <div class="img">
-           <!-- <img :src="picture" alt="CK" class="picture"/> -->
+           <img :src="picture" alt="CK" class="picture"/>
          </div>
      </div>
      <div class="h2-text">
@@ -70,7 +70,7 @@ export default {
   name: 'HomeView',
  data() {
      return {
-      //picture: 'https://demilee06.github.io/Node-Images/CocoChanel.jpg',
+      picture: 'https://github.com/demilee06/Node-Images/blob/main/5616868-hd_2048_1080_25fps-ezgif.com-optimize.gif?raw=true',
       womenSec: 'https://raw.githubusercontent.com/demilee06/Node-Images/main/women-sect.webp',
       menSec: 'https://raw.githubusercontent.com/demilee06/Node-Images/main/men-sec.webp',
       product1:'https://github.com/demilee06/Node-Images/blob/main/CocoChanel.jpg?raw=true',
@@ -95,10 +95,12 @@ export default {
    grid-template-columns: repeat(2, 1fr);
  }
  .picture{
-   width: 30vw;
+   width: 100%;
+   height: 100%;
  }
  .text{
    background-color: #FFE8D6;
+   height: auto;
  }
  .text-h1{
    font-family: "Noto Serif", serif;
@@ -113,6 +115,7 @@ export default {
    color: black;
    text-align: left;
    margin-left: 4rem;
+   margin-bottom: 4rem;
  }
  .img{
    background-color: #F5B583;
@@ -121,11 +124,11 @@ export default {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
  }
- .her-image{
-  filter: grayscale(50%);  
+ .her-image, .him-image{
+  filter: grayscale(65%);  
   transition: filter 0.4s;
  }
- .her-image:hover{
+ .her-image:hover, .him-image:hover{
   filter: none;
  }
  .h2-text{
@@ -157,6 +160,11 @@ export default {
  .product{
   height: 20rem;
   border-radius: 3rem;
+  animation-duration: 2sec;
+ }
+ .product:hover{
+  transform: scale(1.1);
+  transition: transform 0.6s;
  }
  .product-text a{
   text-decoration: none;
@@ -165,14 +173,28 @@ export default {
   color: white;
   margin-top: 2rem;
  }
- .men-sec, .women-sec{
-  border-radius: 40rem;
-  width: 22rem;
-  height: 20rem;
+ .women-sec{
+  border-radius: 20rem;
+  width: 28rem;
+  height: 27rem;
+  padding: 2rem;
+  margin-left: 10rem;
+ }
+ .men-sec{
+  border-radius: 20rem;
+  width: 28rem;
+  height: 27rem;
+  padding: 2rem;
+  margin-right: 10rem;
  }
  .for-her, .for-him{
   color: black;
   text-decoration: none;
+ }
+ .view-h4{
+  font-size: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 2rem;
  }
 
  @media only screen and (max-width: 300px){

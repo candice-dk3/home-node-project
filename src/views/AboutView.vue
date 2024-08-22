@@ -5,7 +5,7 @@
          <div class="WWD">
             <div class="WWD-left">
               <h3 class="h3-text">Le Luxe: The Epitome of Refined Elegance</h3>
-              <p class="p-text">Le Luxe is a luxury lifestyle brand that embodies the essence
+              <p class="p-text1">Le Luxe is a luxury lifestyle brand that embodies the essence
                 of refined elegance and sophistication. Our mission is to provide our
                 discerning clients with unparalleled service, exceptional quality, and
                 unparalleled style. If high-end frangrances is what you're looking for, Le Luxe has got you covered.
@@ -17,7 +17,7 @@
           <div class="SOO-left"></div>
           <div class="SOO-right">
             <h3 class="h3-text">Our Story</h3>
-            <p class="p-text">Our story began with a passion for creating unique and
+            <p class="p-text2">Our story began with a passion for creating unique and
               exclusive fragrances that evoke the essence of luxury and sophistication.
               With a keen eye for detail and a commitment to excellence, we have
               established ourselves as a leading luxury lifestyle brand. Our fragrances
@@ -32,18 +32,22 @@
               <div class="feedback-card">
                   <img :src="card" alt="User" class="card"/>
                   <h4 class="content-h4">User</h4>
+                  <p class="content-p"></p>
               </div>
               <div class="feedback-card">
                   <img :src="card" alt="User" class="card"/>
                   <h4 class="content-h4">User</h4>
+                  <p class="content-p"></p>
               </div>
               <div class="feedback-card">
                   <img :src="card" alt="User" class="card"/>
                   <h4 class="content-h4">User</h4>
+                  <p class="content-p"></p>
               </div>
               <div class="feedback-card">
                   <img :src="card" alt="User" class="card"/>
                   <h4 class="content-h4">User</h4>
+                  <p class="content-p"></p>
               </div>
           </div>
           </div>
@@ -51,18 +55,18 @@
        </div>
    </section>
  </template>
-
+ 
  <script>
  export default {
    name: 'AboutView',
    data(){
     return{
-      
+      card: 'https://github.com/demilee06/Node-Images/blob/main/user.png?raw=true'
     }
    }
  }
  </script>
-
+ 
  <style scoped>
    .about-sec{
      background-image:  url(https://github.com/demilee06/Node-Images/blob/main/about%20gif.gif?raw=true);
@@ -77,17 +81,27 @@
    }
    .welcome{
     padding: 2rem;
+    font-size: 2.5rem;
    }
    .h3-text{
+    padding: 0rem;
+    text-align: center;
+    margin-right: 4rem;
+    font-weight: 600;
+    font-size: 2rem;
+    width: 100%;
+   }
+   .p-text1{
     padding: 1rem;
     text-align: start;
     margin-left: 8rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 500;
    }
-   .p-text{
+   .p-text2{
     padding: 1rem;
     text-align: start;
-    margin-left: 10rem;
+  
     font-size: 1.4rem;
     font-weight: 500;
    }
@@ -104,8 +118,31 @@
     }
    .card{
     border-radius: 20rem;
-    width: 12rem;
-    height: 12rem;
-    text-align: center
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+    background-color: transparent;
+   }
+   .content-h4{
+     padding: 0.4rem;
+     font-size: 1rem;
+     margin-right: 12rem;
+   }
+   .content-p{
+     font-size: 1rem;
+     margin-right: 12rem;
+     font-weight: 600;
+   }
+   .FB-h3-text{
+     padding: 2rem;
+     text-align: center;
+     font-size: 2.5rem;
+   }
+   @media only screen and (max-width: 300px){
+     .about-sec{
+     height: 100%;
+     width: 100%;
+   }
    }
  </style>
+ 

@@ -15,9 +15,9 @@
               <h2 class="follow-us-h2">Follow Us</h2>
               <div class="social-links">
                 <div class="social-images">
-                    <div class="insta-image"><img :src="insta-sec" alt="CK" class="insta-sec"/></div>
-                    <div class="facebook-image"> <img :src="facebook-sec" alt="CK" class="facebook-sec"/></div>
-                    <div class="twitter-image"><img :src="twitter-sec" alt="CK" class="twitter-sec"/></div>
+                    <div class="insta-image"><img :src="instaSec" alt="CK" class="insta-sec"/></div>
+                    <div class="facebook-image"> <img :src="facebookSec" alt="CK" class="facebook-sec"/></div>
+                    <div class="twitter-image"><img :src="twitterSec" alt="CK" class="twitter-sec"/></div>
                 </div>
                 <div class="social-text">
                     <div class="insta-text">le_Luxe</div>
@@ -36,9 +36,9 @@
 export default {
   data(){
       return{
-          instaSec: '',
-          facebookSec: '',
-          twitterSec: ''
+          instaSec: 'https://github.com/demilee06/Node-Images/blob/main/instagram%20(2).png?raw=true',
+          facebookSec: 'https://github.com/demilee06/Node-Images/blob/main/facebook.png?raw=true',
+          twitterSec: 'https://github.com/demilee06/Node-Images/blob/main/twitter.png?raw=true'
       }
   }
 }
@@ -93,10 +93,16 @@ export default {
   }
   .insta-text, .facebook-text, .twitter-text{
     color: white;
-    padding: 1rem;
+    padding: 1.4rem;
   }
   .insta-image, .facebook-image, .twitter-image{
     padding: 1rem;
+  }
+  .insta-sec, .twitter-sec{
+      width: 2rem;
+  }
+  .facebook-sec{
+      width: 3rem;
   }
   .copyright-text{
     margin-top: 2rem;
