@@ -38,15 +38,18 @@
                   <img :src="card" alt="User" class="card"/>
                   <h4 class="content-h4">User</h4>
                   <p class="content-p"></p>
-              </div>
-              <div class="feedback-card">
-                  <img :src="card" alt="User" class="card"/>
-                  <h4 class="content-h4">User</h4>
                   <p class="content-p"></p>
               </div>
               <div class="feedback-card">
                   <img :src="card" alt="User" class="card"/>
                   <h4 class="content-h4">User</h4>
+                  <p class="content-p"></p>
+                  <p class="content-p"></p>
+              </div>
+              <div class="feedback-card">
+                  <img :src="card" alt="User" class="card"/>
+                  <h4 class="content-h4">User</h4>
+                  <p class="content-p"></p>
                   <p class="content-p"></p>
               </div>
           </div>
@@ -56,16 +59,19 @@
    </section>
  </template>
  
+ 
  <script>
  export default {
    name: 'AboutView',
    data(){
     return{
       card: 'https://github.com/demilee06/Node-Images/blob/main/user.png?raw=true'
+      card: 'https://github.com/demilee06/Node-Images/blob/main/user.png?raw=true'
     }
    }
  }
  </script>
+ 
  
  <style scoped>
    .about-sec{
@@ -81,6 +87,7 @@
    }
    .welcome{
     padding: 2rem;
+    font-size: 2.5rem;
     font-size: 2.5rem;
    }
    .h3-text{
@@ -145,4 +152,5 @@
    }
    }
  </style>
+ 
  

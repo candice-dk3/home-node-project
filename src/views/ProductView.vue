@@ -104,38 +104,8 @@ export default {
     background-color: #FFBF69;
     height: 100%;
     margin-top: 3.9rem;
-}
-
-#search-div {
-    background-color: #CB997E;
-    border: none;
-    height: 2rem;
-    width: 30rem;
-    border-radius: 2rem;
-}
-.carousel-control-prev, .carousel-control-next{
-    background-color: transparent;
-    margin-top: 10rem;
-}
-input {
-    background-color: #CB997E;
-    border: none;
-}
-
-::placeholder {
-    color: white;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #CB997E;
-    border: none;
-    width: 8rem;
-    height: 2rem;
-}
-
-.for-her-sec,
-.for-him-sec {
+  }
+  .for-her-sec, .for-him-sec{
     padding: 4rem;
 }
 
@@ -164,21 +134,19 @@ button {
     font-weight: 700;
     padding: 1rem;
     margin-left: 3rem;
+  }
+     .for-her-picture{
+      width: 38rem;
+     }
+     .for-him-picture{
+      width: 38rem;
+     }
+     .search-sort{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2.2rem;
+     }
+     @media only screen and (max-width: 300px){
+  
 }
-
-.for-her-picture {
-    width: 38rem;
-}
-
-.for-him-picture {
-    width: 38rem;
-}
-
-.search-sort {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 2.2rem;
-}
-
-@media only screen and (max-width: 300px) {}
-</style>
+  </style>

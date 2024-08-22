@@ -6,24 +6,43 @@
          <div class="contact-sec">
              <div class="form-sec">
                  <form action="https://formspree.io/f/mnnabbvv" method="POST" target="blank">
+                 <form action="https://formspree.io/f/mnnabbvv" method="POST" target="blank">
                  <label class="name">Your Name: <br><input type="name" name="name"></label>
                  <label class="name">Your Number: <br><input type="phone-number" name="phone-number"></label>
                  <label class="name">Your email: <br><input type="email" name="email"></label>
                  <label class="name">Your message: <br><textarea name="message"></textarea></label>
                  <div class="buttons">
                    <div class="reset">
+                   <div class="reset">
                      <button type="reset" class="clear-btn">Clear</button>
                    </div>
                    <div class="submit">
+                   </div>
+                   <div class="submit">
                      <button type="submit" class="send-btn">Send</button>
+                   </div>
                    </div>
                  </div>
                  </form>
              </div>
              <div class="contact-us-sec">
                  <h3 class="find-h3">Find us on</h3>
+                 <h3 class="find-h3">Find us on</h3>
                  <div class="contact-us-inner-sec">
                         <div class="social-links">
+                           <div class="social-images">
+                               <div class="email-image"><img :src="emailSec" alt="CK" class="email-sec"/></div>
+                               <div class="insta-image"><img :src="instaSec" alt="CK" class="insta-sec"/></div>
+                               <div class="facebook-image"> <img :src="facebookSec" alt="CK" class="facebook-sec"/></div>
+                               <div class="twitter-image"><img :src="twitterSec" alt="CK" class="twitter-sec"/></div>
+                           </div>
+                       <div class="social-text">
+                           <div class="email-text">leLuxe@gmail.com</div>
+                           <div class="insta-text">le_Luxe</div>
+                           <div class="facebook-text">Le Luxe Offical</div>
+                           <div class="twitter-text">le_luxeSA</div>
+                       </div>
+                   </div>
                            <div class="social-images">
                                <div class="email-image"><img :src="emailSec" alt="CK" class="email-sec"/></div>
                                <div class="insta-image"><img :src="instaSec" alt="CK" class="insta-sec"/></div>
@@ -52,10 +71,22 @@
            twitterSec: 'https://github.com/demilee06/Node-Images/blob/main/twitter.png?raw=true'
        }
      }
+     data(){
+       return{
+           emailSec: 'https://github.com/demilee06/Node-Images/blob/main/pixelcut-export.png?raw=true',
+           instaSec: 'https://github.com/demilee06/Node-Images/blob/main/instagram%20(2).png?raw=true',
+           facebookSec: 'https://github.com/demilee06/Node-Images/blob/main/facebook.png?raw=true',
+           twitterSec: 'https://github.com/demilee06/Node-Images/blob/main/twitter.png?raw=true'
+       }
+     }
  }
  </script>
  <style scoped>
      .inner-contact-sec{
+       background-image:  url(https://github.com/demilee06/Node-Images/blob/main/9153882-hd_2048_1080_30fps-ezgif.com-optimize.gif?raw=true);
+       background-size: 100% 100%;
+       background-repeat: repeat-x, repeat-y;
+       height: 100%;
        background-image:  url(https://github.com/demilee06/Node-Images/blob/main/9153882-hd_2048_1080_30fps-ezgif.com-optimize.gif?raw=true);
        background-size: 100% 100%;
        background-repeat: repeat-x, repeat-y;
@@ -71,15 +102,20 @@
      }
     .contact-h2{
         color: black;
+        color: black;
         text-align: left;
         margin-left: 6vw;
+        font-size: 2.4rem;
+        font-weight: 700;
         font-size: 2.4rem;
         font-weight: 700;
     }
     .form-sec{
         background-color: transparent;
+        background-color: transparent;
         width: 30rem;
         height: auto;
+        margin-left: 14vw;
         margin-left: 14vw;
         margin-bottom: 4rem;
      }
@@ -95,9 +131,11 @@
      .name{
         color: black;
         font-weight: 700;
+        font-weight: 700;
         margin-left: 0px;
         margin-bottom: 1rem;
      }
+     
      
     textarea{
         width: 24rem;
@@ -111,6 +149,7 @@
 
     label {
         display: block;
+        margin-bottom: 2rem;
         margin-bottom: 2rem;
         font-weight: bold;
     }
