@@ -14,14 +14,14 @@
           </div>
           <div class="offcanvas-body">
             <div class="navbar-nav">
-              <div class="f-sec">
+              <div class="f-nav">
                   <router-link to="/" class="nav-link">Home</router-link>
                   <router-link to="/product" class="nav-link">Our Products</router-link>
               </div>
-              <div class="s-sec">
+              <div class="s-nav">
                   <router-link to="/" class="nav-link"><img :src="logo" alt="CK" class="logo"/></router-link>
               </div>
-              <div class="t-sec">
+              <div class="t-nav">              
                 <router-link to="/about" class="nav-link">About Us</router-link>
                 <router-link to="/contact" class="nav-link">Contact Us</router-link>
                 <router-link to="/admin" class="nav-link">Admin</router-link></div>
@@ -32,6 +32,7 @@
     </nav>
   </div>
 </template>
+
 <script>
 export default {
   name: 'NavBarComp',
@@ -42,11 +43,15 @@ export default {
   },
 }
 </script>
+
 <style>
 .offcanvas-body {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   padding: 20px;
   background-color: #CB997E;
 }
+
 .offcanvas-body a {
   font-weight: bold;
   font-size: 18px;
@@ -54,8 +59,9 @@ export default {
   text-decoration: none;
   padding: 10px;
 }
+
 .offcanvas-body a.router-link-exact-active {
-  color: #FFC400;
+  color: #ffc400;
   transition-duration: 2sec;
 }
 .navbar{
@@ -67,14 +73,18 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
 }
+.navbar-expand-sm .navbar-nav .nav-link {
+  padding-right: 20px;
+  padding-left: 20px;
+}
 .logo{
   width: 1rem;
 }
-.f-sec{
+.f-nav{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.t-sec{
+.t-nav{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -82,6 +92,7 @@ export default {
   padding-right: 1rem;
   padding-left: 1rem;
 }
+
 nav a {
   font-weight: bold;
   font-size: 20px;
@@ -89,15 +100,53 @@ nav a {
   text-decoration: none;
   padding: 1.3rem;
 }
-.offcanvas-body .f-nav a, .offcanvas-body .s-nav a, .offcanvas-body .t-nav a {
+/* .offcanvas-body .f-nav a, .offcanvas-body .s-nav a, .offcanvas-body .t-nav a {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
+  grid-template-columns: repeat(1, 1fr);
+} */
+/* 
 .offcanvas-body .f-nav, .offcanvas-body .s-nav, .offcanvas-body .t-nav {
   display: block;
   grid-template-columns: none;
-}
-.offcanvas-body .s-nav {
+} */
+/* .offcanvas-body .s-nav {
   display: none;
+} */
+@media screen and (max-width: 300px) {
+  .offcanvas-body a {
+  font-size: 14px;
+  padding: 0rem;
+}
+  .navbar-nav {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* width: 100%; */
+  height: auto;
+  }
+  .s-nav{
+    display: none;
+  }
+  .f-nav{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.t-nav{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+nav a {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  padding: 1rem;
+}
+.offcanvas-header{
+  background-color: #8d6149;
+}
+  /* .offcanvas-body .f-nav a, .offcanvas-body .s-nav a, .offcanvas-body .t-nav a {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+} */
 }
 </style>

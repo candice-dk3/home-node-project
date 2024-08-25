@@ -31,23 +31,30 @@
          <div class="feedback-content">
              <div class="feedback-card">
                  <img :src="card" alt="User" class="card"/>
-                 <h4 class="content-h4">User</h4>
-                 <p class="content-p"></p>
+                 <h4 class="content-h4">Sophia M.</h4>
+                 <p class="content-p">"Le Luxe is my go-to destination for 
+                  all things fragrance! The packaging is also stunning, 
+                  making every purchase feel like a special treat!"
+                 </p>
              </div>
              <div class="feedback-card">
                  <img :src="card" alt="User" class="card"/>
-                 <h4 class="content-h4">User</h4>
-                 <p class="content-p"></p>
+                 <h4 class="content-h4">James R.</h4>
+                 <p class="content-p">"I’ve been shopping at Le Luxe for years,
+                   and it never disappoints."</p>
              </div>
              <div class="feedback-card">
                  <img :src="card" alt="User" class="card"/>
-                 <h4 class="content-h4">User</h4>
-                 <p class="content-p"></p>
+                 <h4 class="content-h4">Emily T.</h4>
+                 <p class="content-p">"Le Luxe is a hidden gem for perfume lovers! 
+                  The boutique is beautifully designed, and the atmosphere is so inviting." </p>
              </div>
              <div class="feedback-card">
                  <img :src="card" alt="User" class="card"/>
-                 <h4 class="content-h4">User</h4>
-                 <p class="content-p"></p>
+                 <h4 class="content-h4">David L.</h4>
+                 <p class="content-p">"Every visit is a delight, 
+                  from the elegant décor to the delightful scents that greet you as
+                   soon as you walk in."</p>
              </div>
          </div>
          </div>
@@ -91,7 +98,6 @@ export default {
     height: 100%;
     width: 100%;
     margin-top: 3.9rem;
-    
   }
   .inner-sec{
     color: black;
@@ -183,6 +189,9 @@ export default {
   }
   
 @media only screen and (max-width: 300px){
+  .about-sec{
+    margin-top: 3.5rem;
+  }
   .about-sec{
     background-size: cover;
     height: 100%;

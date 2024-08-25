@@ -11,6 +11,11 @@ export default{
   components:{
     NavBarComp,
     FooterComp
+  },
+  watch: {
+    $route() {
+      window.scrollTo(0, 0);
+    }
   }
 }
 
@@ -32,4 +37,7 @@ html{
 body::-webkit-scrollbar{
   display: none;
 }
+/* section{
+  scroll-margin-block: 3.9rem;
+} */
 </style>

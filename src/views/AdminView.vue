@@ -1,318 +1,126 @@
 <template>
     <section class="inner-admin">
-        <button @click="addProduct()" type="button" class="btn" data-bs-toggle="modal"
-            data-bs-target="#adminAddProduct">Add New Product</button>
-        <div v-for="product in $store.state.products" :key="product.prodID" class="products-sec">
-            <table class="table table-responsive table-bordered">
-                <thead class="table-group-divider">
-                    <tr>
-                        <th>ID</th>
+        <button  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddProduct">Add New Product</button>
+            <div class="admin-page-table">
+                <table class="table table-responsive table-bordered">
+                    <thead class="table-group-divider">
+                        <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Quantity</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="table-products">
+                        <tr v-for="product in $store.state.products" :key="product.prodID">
+                        <!-- <td>{{ product.prodID }}</td> -->
+                        <td>{{ product.prodName }}</td>
+                        <td><img :src="product.prodUrl" alt="Product Image" class="img-fluid" width="auto" height="auto" /></td>
+                        <td>{{ product.Catergory }}</td>
+                        <td>{{ product.prodDes }}</td>
+                        <td>{{ product.amount }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>
+                            <button class="btn"><edit-product :product="product"/></button>
+                            <button @click="deleteProduct()" class="btn btn-outline-danger">Delete Product</button>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddUser">Add New User</button> -->
+            <add-user :user="user"/>
+            <div class="user-page-table">
+                <table class="table table-responsive table-bordered">
+                    <thead class="table-group-divider">
+                        <tr>
+                        <!-- <th>ID</th> -->
                         <th>Name</th>
                         <th>Image</th>
                         <th>Category</th>
                         <th>Amount</th>
                         <th>Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider" id="table-products">
-                    <tr>
-                        <td>{{ product.prodID }}</td>
-                        <td>{{ product.prodName }}</td>
-                        <td><img :src="product.prodUrl" alt="Product Image" class="img-fluid" width="70rem"
-                                height="70rem" /></td>
-                        <td>{{ product.Catergory }}</td>
-                        <td>{{ product.amount }}</td>
-                        <td>{{ product.quantity }}</td>
-                        <td>
-                            <button @click="updateProduct.$prodID" type="button" class="btn" data-bs-toggle="modal"
-                                data-bs-target="#adminEditProduct">Edit</button>
-                            <button class="btn btn-outline-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <button @click="addUser()" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddUser">Add
-            New User</button>
-        <div v-for="user in $store.state.users" :key="user.userID" class="user-sec">
-            <table class="table table-responsive table-bordered">
-                <thead class="table-group-divider">
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Role</th>
-                        <th>Email</th>
-                        <th>Profile</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider" id="table-user">
-                    <tr>
-                        <td>{{ user.usersID }}</td>
-                        <td>{{ user.firstName }}</td>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="table-products">
+                        <tr v-for="user in $store.state.users" :key="user.usersID">
+                        <!-- <td>{{ user.usersID }}</td> -->
+                        <td>{{ user.firstName }}</td> 
                         <td>{{ user.lastName }}</td>
-                        <td>{{ user.userAge }}</td>
-                        <td>{{ user.Gender }}</td>
+                        <td>{{ user.Gender }}</td> 
                         <td>{{ user.userRole }}</td>
-                        <td>{{ user.emailAdd }}</td>
-                        <td>{{ user.userProfile }}</td>
-                        <td>
-                            <button @click="updateUser()" type="button" class="btn" data-bs-toggle="modal"
-                                data-bs-target="#adminEditUser">Edit</button>
-                            <button @click="deleteUser()" class="btn btn-outline-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Add New Product Modal -->
-        <div class="modal fade" id="adminAddProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="addProductLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addProductLabel">Add a New Product</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="updateProduct()">
-                            <div class="container">
-                                <input class="form-control m-2" type="text" placeholder="Enter product ID"
-                                    v-model="prodID" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter product name"
-                                    v-model="prodName" required>
-                                <input class="form-control m-2" type="url" placeholder="Enter product image URL"
-                                    v-model="prodUrl" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter product category"
-                                    v-model="Catergory" required>
-                                <input class="form-control m-2" placeholder="Enter product amount" v-model="amount"
-                                    required>
-                                <input class="form-control m-2" type="number" placeholder="Enter product quatity"
-                                    v-model="quantity" required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Close</button>
-                                <button type="reset" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Clear</button>
-                                <button type="submit" class="btn btn-outline-success" @click="addProduct()">Save
-                                    Product</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Add New User Modal -->
-        <div class="modal fade" id="adminAddUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="addUserLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addUserLabel">Add a New User</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="updateUser()">
-                            <div class="container">
-                                <input class="form-control m-2" type="text" placeholder="Enter product ID"
-                                    v-model="usersID" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Name" v-model="firstName"
-                                    required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Surname"
-                                    v-model="lastName" required>
-                                <input class="form-control m-2" type="number" placeholder="Enter Age" v-model="userAge"
-                                    required>
-                                <input class="form-control m-2" placeholder="Enter Gender" v-model="Gender" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Role" v-model="userRole"
-                                    required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Email" v-model="emailAdd"
-                                    required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Close</button>
-                                <button type="reset" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Clear</button>
-                                <button type="submit" class="btn btn-outline-success" @click="addUser()">Save
-                                    User</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit Product Modal -->
-        <div class="modal fade" id="adminEditProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="editProductLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="editProductLabel">Edit Product</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="updateProduct()">
-                            <div class="container">
-                                <input class="form-control m-2" type="text" placeholder="Enter product ID"
-                                    v-model="prodID" required readonly>
-                                <input class="form-control m-2" type="text" placeholder="Enter product name"
-                                    v-model="prodName" required>
-                                <input class="form-control m-2" type="url" placeholder="Enter product image URL"
-                                    v-model="prodUrl" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter product category"
-                                    v-model="Catergory" required>
-                                <textarea class="form-control m-2" placeholder="Enter product amount" v-model="amount"
-                                    required></textarea>
-                                <input class="form-control m-2" type="number" placeholder="Enter product quantity"
-                                    v-model="quantity" required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Clear</button>
-                                <button type="button" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-outline-success" @click="updateProduct()">Save
-                                    Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Edit User Modal -->
-        <div class="modal fade" id="adminEditUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="editProductLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="editProductLabel">Edit User</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="updateProduct()">
-                            <div class="container">
-                                <input class="form-control m-2" type="text" placeholder="Enter product ID"
-                                    v-model="usersID" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Name" v-model="firstName"
-                                    required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Surname"
-                                    v-model="lastName" required>
-                                <input class="form-control m-2" type="number" placeholder="Enter Age" v-model="userAge"
-                                    required>
-                                <input class="form-control m-2" placeholder="Enter Gender" v-model="Gender" required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Role" v-model="userRole"
-                                    required>
-                                <input class="form-control m-2" type="text" placeholder="Enter Email" v-model="emailAdd"
-                                    required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Clear</button>
-                                <button type="button" class="btn btn-outline-success"
-                                    data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-outline-success" @click="updateUser()">Save
-                                    Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <td>{{ user.emailAdd }}</td> 
+                            <button class="btn"><edit-user :user="user"/></button>
+                            <button @click="deleteUser()" class="btn btn-outline-danger">Delete User</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
     </section>
 </template>
 
 <script>
+import EditProduct from '@/components/EditProduct.vue';
+import EditUser from '@/components/EditUser.vue';
+import AddUser from '@/components/AddUser.vue';
 
 export default {
     data() {
         return {
             newProduct: {
-                prodID: '',
                 prodName: '',
-                prodUrl: '',
-                Catergory: '',
+                quantity: '',
                 amount: '',
-                quantity: ''
-            },
-            editProduct: {
-                prodID: '',
-                prodName: '',
-                prodUrl: '',
                 Catergory: '',
-                amount: '',
-                quantity: ''
+                prodUrl: '',
+                prodDes: '',
             },
-            newUser: {
-                usersID: '',
-                firstName: '',
-                lastName: '',
-                userAge: '',
-                Gender: '',
-                userRole: '',
-                emailAdd: ''
-            },
-            editUser: {
-                userID: '',
-                firstName: '',
-                lastName: '',
-                userAge: '',
-                Gender: '',
-                userRole: '',
-                emailAdd: ''
-            },
+            
         };
+    },
+    components:{
+        EditProduct,
+        EditUser,
+        AddUser
     },
     methods: {
         getProducts() {
             this.$store.dispatch('getProducts');
         },
+        
         getUsers() {
             this.$store.dispatch('getUsers');
         },
         addProduct() {
             this.$store.dispatch('addProduct', this.newProduct);
-            this.newProduct = {
-                prodID: '',
-                prodName: '',
-                prodUrl: '',
-                Catergory: '',
-                amount: '',
-                quantity: ''
-            };
-            // this.$refs.form.reset();
-        },
-        updateProduct() {
-            this.$store.dispatch('updateProduct', this.editProduct);
-        },
-        deleteUser() {
-            this.$store.dispatch('deleteUser', this.userId)
+            
         },
         addUser() {
             this.$store.dispatch('addUser', this.newUser);
-            this.newUser = {
-                usersID: '',
-                firstName: '',
-                lastName: '',
-                userAge: '',
-                Gender: '',
-                userRole: '',
-                emailAdd: ''
-            };
+        },
+        deleteUser() {
+            this.$store.dispatch('deleteUser', this.usersID)
         },
         updateUser() {
             this.$store.dispatch('updateUser', this.editUser);
         }
     },
+    computed: {
+        product(){
+            return this.$store.state.product
+        },
+        user(){
+            return this.$store.state.user
+        }
+    },
     mounted() {
         this.getProducts(),
-            this.getUsers()
+        this.getUsers()
     }
 }
 </script>
@@ -320,7 +128,7 @@ export default {
 <style scoped>
 .inner-admin {
     margin-top: 3.9rem;
-    background-image: url(https://github.com/demilee06/Node-Images/blob/main/5616868-hd_2048_1080_25fps-ezgif.com-optimize.gif?raw=true);
+    /* background-image: url(https://github.com/demilee06/Node-Images/blob/main/5616868-hd_2048_1080_25fps-ezgif.com-optimize.gif?raw=true); */
     background-size: contain
 }
 
@@ -331,19 +139,21 @@ export default {
 
 .table {
     width: 80rem;
-    background-color: #96005A;
-    margin-top: 2rem;
+    /* background-color: #96005A; */
+    margin-top: 1rem;
 }
 
 .table th,
 .table td {
-    text-align: center;
+    text-align: left;
     justify-content: center;
     align-content: center;
+    background-color: rgba(128, 128, 128, 0.336);
+    border: none;
 }
 
-.admin-page-table {
-    width: 1200px;
+.admin-page-table, .user-page-table {
+    width: auto;
     display: grid;
     justify-content: center;
 }
@@ -357,19 +167,11 @@ export default {
     text-align: end;
 }
 
-#checkout-button {
-    background-color: #C2922F;
-    border: none;
-}
-
-/* .add-item{
-    margin-top: 30px;
-} */
 button.btn {
     color: white;
-    background-color: #b5006d;
-    margin-top: 60px;
-    margin-left: 200px;
+    background-color: #C2922F;
+    margin-top: 40px;
+    /* margin-left: 200px; */
     border: none;
 }
 
@@ -381,7 +183,7 @@ button.btn:hover {
 
 .products-sec {
     display: grid;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .img-fluid {
@@ -389,5 +191,31 @@ button.btn:hover {
     height: auto;
 }
 
-@media screen and (max-width: 300px) {}
+@media screen and (max-width: 300px) {
+    .inner-admin {
+        margin-top: 3.5rem;
+    /* background-image: url(https://github.com/demilee06/Node-Images/blob/main/5616868-hd_2048_1080_25fps-ezgif.com-optimize.gif?raw=true); */
+    background-size: contain
+}
+.admin-page-table, .user-page-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .table {
+    width: 100%;
+    display: block;
+
+  }
+  .table th, .table td {
+    padding: 5px;
+    font-size: 12px;
+    display: block;
+    width: 100%;
+  }
+  .img-fluid {
+    max-width: 50px;
+    height: auto;
+  }
+
+}
 </style>

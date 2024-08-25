@@ -9,7 +9,9 @@ axios.defaults.withCredentials = true
 export default createStore({
   state: {
     users: [],
-    products: []
+    products: [],
+    user:[],
+    product:null
   },
   getters: {
   },
@@ -17,17 +19,14 @@ export default createStore({
     setProducts(state, payload){
       state.products = payload
     },
+    setProduct(state, payload){
+      state.product = payload
+    },
     setUsers(state, payload){
       state.users = payload
     },
-    addUser(state, payload){
-      state.users.push(payload)
-    },
-    addProduct(state, payload){
-      state.products.push(payload)
-    },
-    deleteUser(state, userId){
-      state.users = state.users.filter(user => user.id !== userId)
+    setUser(state, payload){
+      state.user = payload
     }
   },
   actions: {
@@ -36,6 +35,16 @@ export default createStore({
         const { data } = await axios.get(`${apiURL}products`)
         console.log(data);
         commit('setProducts', data)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getProduct({ commit },id) {
+      try {
+        console.log(id);
+        const { data } = await axios.get(`${apiURL}products/${id}`)
+        console.log(data);
+        commit('setProduct', data)
       } catch (error) {
         console.log(error)
       }
@@ -58,7 +67,8 @@ export default createStore({
     },
     async addProduct({ commit }, product) {
       try {
-        const { data } = await axios.post(`${apiURL}products`, product)
+        const { data } = await (await axios.post(`${apiURL}products/addProduct`, product)).data
+        console.log('newdata'+data.message)
         if (data.message){
           toast("Product Added Successfully", {
             theme: "dark",
@@ -66,14 +76,16 @@ export default createStore({
             position: "top-center",
             dangerouslyHTMLString: true
           })
+          
         }
       } catch (error) {
         console.log(error)
       }
     },
     async updateProduct({ commit }, product) {
+      // console.log(product);
       try {
-        const { data } = await axios.patch(`${apiURL}products/${product.id}`, product)
+        const { data } = await axios.patch(`${apiURL}products/update/${product.id}`, product)
         if (data.message){
           toast("Product Updated Successfully", {
             theme: "dark",
@@ -86,6 +98,21 @@ export default createStore({
         console.log(error)
       }
     },
+    async deleteProduct({commit}, product){
+      try {
+        const { data } = await axios.delete(`${apiURL}products/delete/${product.id}`)
+        if (data.message){
+          toast("Product Deleted Successfully", {
+            theme: "dark",
+            type: "default",
+            position: "top-center",
+            dangerouslyHTMLString: true
+            })
+            } 
+            } catch (error) {
+              console.log(error)
+              }
+    },
     async getUsers({ commit }) {
       try {
         const { data } = await axios.get(`${apiURL}users`)
@@ -95,26 +122,37 @@ export default createStore({
         console.log(error)
       }
     },
-    async addUser({ commit }, info) {
+    async getUser({ commit },id) {
       try {
-        const { data } = await axios.post(`${apiURL}users`, info)
-        if(data){
-          toast("New User Has Been Added", {
+        const { data } = await axios.get(`${apiURL}users/${id}`)
+        console.log(data);
+        commit('setUser', data)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async addUser({ commit }, user) {
+      try {
+        const { data } = await (await axios.post(`${apiURL}users/register`, user)).data
+        // console.log('newdata'+data.message)
+
+        if (data.message){
+          toast("User Added Successfully", {
             theme: "dark",
             type: "default",
             position: "top-center",
             dangerouslyHTMLString: true
           })
-          commit('addUser', data)
+          
         }
       } catch (error) {
         console.log(error)
       }
     },
-    async deleteUser({ commit }, userId) {
+    async deleteUser({ commit }, usersID) {
       try {
-        await axios.delete(`${apiURL}users/${userId}`)
-        commit('deleteUser', userId)
+        await axios.delete(`${apiURL}users/delete/${usersID}`)
+        commit('deleteUser', usersID)
         toast("User Deleted Successfully", {
           theme: "dark",
           type: "default",
@@ -126,8 +164,9 @@ export default createStore({
       }
     },
     async updateUser({ commit }, user) {
+      // console.log(id);
       try {
-        const { data } = await axios.patch(`${apiURL}users/${user.userID}`, user)
+        const { data } = await axios.patch(`${apiURL}users/update/${user.usersID}`, user)
         if (data.message) {
           toast("User Updated Successfully", {
             theme: "dark",

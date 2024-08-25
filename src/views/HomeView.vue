@@ -20,7 +20,7 @@
            <img :src="womenSec" alt="CK" class="women-sec"/>
          </div>
          <div class="them-text">
-          <a href="/product" class="for-her"><h4>FOR HER</h4></a>
+          <a href="/product" class="for-her"><h4 class="for-her">FOR HER</h4></a>
          </div>
        </div>
        <div class="him">
@@ -28,7 +28,7 @@
            <img :src="menSec" alt="CK" class="men-sec"/>
          </div>
          <div class="them-text">
-          <a href="/product" class="for-him"> <h4>FOR HIM</h4></a>
+          <a href="/product" class="for-him"><h4 class="for-him">FOR HIM</h4></a>
          </div>
        </div>
      </div>
@@ -124,11 +124,11 @@ export default {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
  }
- .her-image, .him-image{
-  filter: grayscale(65%);  
+ .her-image{
+  filter: grayscale(50%);  
   transition: filter 0.4s;
  }
- .her-image:hover, .him-image:hover{
+ .her-image:hover{
   filter: none;
  }
  .h2-text{
@@ -159,7 +159,6 @@ export default {
  }
  .product{
   height: 20rem;
-  border-radius: 3rem;
   animation-duration: 2sec;
  }
  .product:hover{
@@ -173,19 +172,10 @@ export default {
   color: white;
   margin-top: 2rem;
  }
- .women-sec{
-  border-radius: 20rem;
-  width: 28rem;
-  height: 27rem;
-  padding: 2rem;
-  margin-left: 10rem;
- }
- .men-sec{
-  border-radius: 20rem;
-  width: 28rem;
-  height: 27rem;
-  padding: 2rem;
-  margin-right: 10rem;
+ .men-sec, .women-sec{
+  border-radius: 40rem;
+  width: 22rem;
+  height: 20rem;
  }
  .for-her, .for-him{
   color: black;
@@ -198,21 +188,18 @@ export default {
  }
 
  @media only screen and (max-width: 300px){
-  .carousel{
-   display: grid;
-   grid-template-columns: repeat(1, 1fr);
- }
- .img{
-   background-color: #F5B583;
+  .inner-home-sect{
+   margin-top: 3.5rem;
  }
    .text-h1{
-     font-size: 1.8rem;
-     padding: 1.2rem;
+     font-size: 2rem;
+     padding: 2rem;
    }
    .text-h4{
      font-size: 0.6rem;
+     font-weight: 700;
      padding: 0rem;
-     margin-left: 1.1rem;
+     margin-left: 2.3rem;
      margin-bottom: 1rem;
    }
    .picture{
@@ -220,30 +207,26 @@ export default {
    }
    .h2-text{
      font-size: 0.4rem;
-     padding: 0.5rem;
-     margin-top: 1rem;
+     padding: 2rem;
    }
    .h2{
      font-size: 1rem;
-     padding: 0rem;
-     text-align: center;
-     margin-top: 1rem;
+     padding: 0.8rem;
    }
    .them-text{
-    text-align: center;
-     font-size: 0.1rem;
-     /* padding: 0.1rem; */
+     padding: 1rem;
    }
- 
+   .for-her, .for-him{
+  font-size: 1rem;
+  font-weight: 600;
+ }
    .him-her{
     grid-template-columns: repeat(1, 1fr);
-    width: 100% !important
    }
    .women-sec, .men-sec{
-    border-radius: 40rem;
-    width: 15rem;
-    height: 14.5rem;
-    margin-left: 0rem;
+    border-radius: 50%;
+    width: 10.5rem;
+    height: 10rem;
    }
    .products{
    grid-template-columns: repeat(1, 1fr);
@@ -269,5 +252,17 @@ export default {
     padding: 0.8rem;
     margin-bottom: 2rem;
   }
+  .carousel{
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+ }
+ .picture{
+   width: 100%;
+   height: 100%;
+ }
+ .H-H{
+  font-size: 1rem;
+  font-weight: 700;
+ }
  }
 </style>
