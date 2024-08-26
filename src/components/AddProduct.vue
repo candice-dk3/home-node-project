@@ -40,5 +40,7 @@ export default {
 </script>
 
 <style>
-
+ .btn{
+    color: white;
+ }
 </style>

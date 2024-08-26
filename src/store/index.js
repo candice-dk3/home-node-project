@@ -83,9 +83,9 @@ export default createStore({
       }
     },
     async updateProduct({ commit }, product) {
-      // console.log(product);
+      console.log(product);
       try {
-        const { data } = await axios.patch(`${apiURL}products/update/${product.id}`, product)
+        const { data } = await axios.patch(`${apiURL}products/update/${product.prodID}`, product)
         if (data.message){
           toast("Product Updated Successfully", {
             theme: "dark",

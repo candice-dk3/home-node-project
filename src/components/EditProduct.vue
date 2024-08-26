@@ -1,9 +1,9 @@
 <template >
   <div>
-      <button type="button" class="btn" data-bs-toggle="modal" :data-bs-target="'#adminEditProduct'+product.prodID">
-          Edit
-      </button>
       <!-- Edit Product Modal -->
+      <button type="button" class="btn" data-bs-toggle="modal" :data-bs-target="'#adminEditProduct'+product.prodID">
+          Edit Product
+      </button>
       <div class="modal fade" :id="'adminEditProduct'+product.prodID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
           aria-labelledby="editProductLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -20,7 +20,7 @@
                               <input class="form-control m-2" type="text" placeholder="Enter product image URL" v-model="updateProduct.prodUrl" required>
                               <input class="form-control m-2" type="text" placeholder="Enter product category" v-model="updateProduct.Catergory" required>
                               <input class="form-control m-2" type="text" placeholder="Enter Description" v-model="updateProduct.prodDes" required>
-                              <textarea class="form-control m-2" placeholder="Enter product amount" v-model="updateProduct.amount" required></textarea>
+                              <input class="form-control m-2" type="number" placeholder="Enter product amount" v-model="updateProduct.amount" required>
                               <input class="form-control m-2" type="number" placeholder="Enter product quantity" v-model="updateProduct.quantity" required>
                           </div>
                           <div class="modal-footer">
@@ -58,6 +58,8 @@ export default {
   }
 }
 </script>
-<style >
-  
+<style scoped>
+   .btn{
+    color: white;
+ }
 </style>

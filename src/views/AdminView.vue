@@ -33,7 +33,7 @@
                 </table>
             </div>
             <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddUser">Add New User</button> -->
-            <add-user :user="user"/>
+            <button class="btn"><add-user :user="user"/></button>
             <div class="user-page-table">
                 <table class="table table-responsive table-bordered">
                     <thead class="table-group-divider">
@@ -148,7 +148,7 @@ export default {
     text-align: left;
     justify-content: center;
     align-content: center;
-    background-color: rgba(128, 128, 128, 0.336);
+    background-color: transparent;
     border: none;
 }
 
@@ -167,16 +167,16 @@ export default {
     text-align: end;
 }
 
-button.btn {
+.btn {
     color: white;
     background-color: #C2922F;
     margin-top: 40px;
-    /* margin-left: 200px; */
     border: none;
+    /* margin-left: 200px; */
 }
 
 button.btn:hover {
-    background-color: #C2922F;
+    background-color: #e2b65f;
     color: white;
     border: none;
 }

@@ -2,7 +2,7 @@
     <div>
     <!-- Edit User Modal -->
     <button type="button" class="btn" data-bs-toggle="modal" :data-bs-target="'#adminEditUser'+user.usersID">
-        Edit
+        Edit User
     </button>
     <div class="modal fade" :id="'adminEditUser'+user.usersID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="editProductLabel" aria-hidden="true">
@@ -59,5 +59,7 @@ export default {
 }
 </script>
 <style scoped>
-   
+    .btn{
+    color: white;
+ }
 </style>
