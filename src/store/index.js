@@ -5,13 +5,15 @@ import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css'
 
 axios.defaults.withCredentials = true
+// axios.defaults.headers = $cookies.get('token')
+
 /* eslint-disable*/
 export default createStore({
   state: {
     users: [],
     products: [],
     user:[],
-    product:null
+    product:[]
   },
   getters: {
   },
@@ -67,8 +69,9 @@ export default createStore({
     },
     async addProduct({ commit }, product) {
       try {
-        const { data } = await (await axios.post(`${apiURL}products/addProduct`, product)).data
-        console.log('newdata'+data.message)
+        const { data } = await (await axios.post(`${apiURL}products/add`, product)).data
+        // console.log('newdata'+data.message)
+        $cookies.set('token',data.token)
         if (data.message){
           toast("Product Added Successfully", {
             theme: "dark",
@@ -100,7 +103,7 @@ export default createStore({
     },
     async deleteProduct({commit}, product){
       try {
-        const { data } = await axios.delete(`${apiURL}products/delete/${product.id}`)
+        const { data } = await axios.delete(`${apiURL}products/delete/${product.prodID}`)
         if (data.message){
           toast("Product Deleted Successfully", {
             theme: "dark",

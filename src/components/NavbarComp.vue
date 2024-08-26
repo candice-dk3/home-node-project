@@ -15,16 +15,16 @@
           <div class="offcanvas-body">
             <div class="navbar-nav">
               <div class="f-nav">
-                  <router-link to="/" class="nav-link">Home</router-link>
-                  <router-link to="/product" class="nav-link">Our Products</router-link>
+                  <router-link to="/" class="nav-link" @click="closeNavbar">Home</router-link>
+                  <router-link to="/product" class="nav-link" @click="closeNavbar">Our Products</router-link>
               </div>
               <div class="s-nav">
-                  <router-link to="/" class="nav-link"><img :src="logo" alt="CK" class="logo"/></router-link>
+                  <router-link to="/" class="nav-link" @click="closeNavbar"><img :src="logo" alt="CK" class="logo"/></router-link>
               </div>
               <div class="t-nav">              
-                <router-link to="/about" class="nav-link">About Us</router-link>
-                <router-link to="/contact" class="nav-link">Contact Us</router-link>
-                <router-link to="/admin" class="nav-link">Admin</router-link></div>
+                <router-link to="/about" class="nav-link" @click="closeNavbar">About Us</router-link>
+                <router-link to="/contact" class="nav-link" @click="closeNavbar">Contact Us</router-link>
+                <router-link to="/admin" class="nav-link" @click="closeNavbar">Admin</router-link></div>
             </div>
           </div>
         </div>
@@ -41,6 +41,11 @@ export default {
       logo:'https://github.com/demilee06/Node-Images/blob/main/logo%20(1).png?raw=true'
     }
   },
+  methods: {
+    closeNavbar() {
+      document.getElementById('offcanvasNavbar').classList.remove('show');
+    }
+  }
 }
 </script>
 

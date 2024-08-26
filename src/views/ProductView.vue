@@ -78,14 +78,13 @@
       </div>
       <div class="products" v-if="filteredProducts">
           <CardComp v-for="product in filteredProducts" :key="product.prodID" class="product-card">
-             
                   <template #cardHeader>
                       <img :src="product.prodUrl" :alt="product.prodName" width="180rem" height="auto">
                   </template>
                   <template #cardBody>
                       <h4 class="product-name">{{ product.prodName }}</h4>
                       <p>Amount: {{ product.amount }}</p>
-                      <button @click="purchaseAlert(product.prodName)">Purchase</button>
+                      <button v-if="$cookies.get('token')" @click="addToCart()" >Purchase</button>
                       <button @click="$router.push(`/product/${product.prodID}`)">View More</button>
                   </template>
               </CardComp>
@@ -126,9 +125,9 @@ methods : {
       addToCart(){
           this.$store.dispatch('addToCart')
       },
-      purchaseAlert(prodName) {
-          alert(`You have purchased ${prodName}`);
-      },
+      // purchaseAlert(prodName) {
+      //     alert(`You have purchased ${prodName}`);
+      // },
   },
   mounted() {
           this.getProducts()

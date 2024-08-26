@@ -35,12 +35,32 @@
 
 <script>
 export default {
-
+    props:['product'],
+    data() {
+        return {
+            newProduct: {
+                prodName: '',
+                quantity: '',
+                amount: '',
+                Catergory: '',
+                prodUrl: '',
+                prodDes: '',
+            },
+            
+        };
+    },
+    methods:{
+        addProductFx(){
+            this.$store.dispatch('addUser', this.addProduct);
+        }
+    }
 }
 </script>
 
-<style>
+<style scoped>
  .btn{
     color: white;
+    background-color: #C2922F;
+    margin-top: 40px;
  }
 </style>

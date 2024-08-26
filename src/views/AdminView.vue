@@ -1,6 +1,7 @@
 <template>
     <section class="inner-admin">
-        <button  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddProduct">Add New Product</button>
+        <!-- <button  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddProduct">Add New Product</button> -->
+        <add-product :product="product"/>
             <div class="admin-page-table">
                 <table class="table table-responsive table-bordered">
                     <thead class="table-group-divider">
@@ -33,7 +34,7 @@
                 </table>
             </div>
             <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#adminAddUser">Add New User</button> -->
-            <button class="btn"><add-user :user="user"/></button>
+            <add-user :user="user"/>
             <div class="user-page-table">
                 <table class="table table-responsive table-bordered">
                     <thead class="table-group-divider">
@@ -68,25 +69,14 @@
 import EditProduct from '@/components/EditProduct.vue';
 import EditUser from '@/components/EditUser.vue';
 import AddUser from '@/components/AddUser.vue';
+import AddProduct from '@/components/AddProduct.vue';
 
 export default {
-    data() {
-        return {
-            newProduct: {
-                prodName: '',
-                quantity: '',
-                amount: '',
-                Catergory: '',
-                prodUrl: '',
-                prodDes: '',
-            },
-            
-        };
-    },
     components:{
         EditProduct,
         EditUser,
-        AddUser
+        AddUser,
+        AddProduct
     },
     methods: {
         getProducts() {
@@ -96,13 +86,13 @@ export default {
         getUsers() {
             this.$store.dispatch('getUsers');
         },
-        addProduct() {
-            this.$store.dispatch('addProduct', this.newProduct);
+        // addProduct() {
+        //     this.$store.dispatch('addProduct', this.newProduct);
             
-        },
-        addUser() {
-            this.$store.dispatch('addUser', this.newUser);
-        },
+        // },
+        // addUser() {
+        //     this.$store.dispatch('addUser', this.newUser);
+        // },
         deleteUser() {
             this.$store.dispatch('deleteUser', this.usersID)
         },

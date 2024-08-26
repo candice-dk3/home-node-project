@@ -58,5 +58,7 @@ export default {
 <style scoped>
  .btn{
     color: white;
+    background-color: #C2922F;
+    margin-top: 40px;
  }
 </style>
