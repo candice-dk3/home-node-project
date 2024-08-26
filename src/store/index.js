@@ -71,7 +71,7 @@ export default createStore({
       try {
         const { data } = await (await axios.post(`${apiURL}products/add`, product)).data
         // console.log('newdata'+data.message)
-        $cookies.set('token',data.token)
+        // $cookies.set('token',data.token)
         if (data.message){
           toast("Product Added Successfully", {
             theme: "dark",
@@ -79,7 +79,6 @@ export default createStore({
             position: "top-center",
             dangerouslyHTMLString: true
           })
-          
         }
       } catch (error) {
         console.log(error)
@@ -102,6 +101,8 @@ export default createStore({
       }
     },
     async deleteProduct({commit}, product){
+      // console.log(data);
+      
       try {
         const { data } = await axios.delete(`${apiURL}products/delete/${product.prodID}`)
         if (data.message){

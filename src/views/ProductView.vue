@@ -84,7 +84,7 @@
                   <template #cardBody>
                       <h4 class="product-name">{{ product.prodName }}</h4>
                       <p>Amount: {{ product.amount }}</p>
-                      <button v-if="$cookies.get('token')" @click="addToCart()" >Purchase</button>
+                      <button @click="addToCart()" >Purchase</button>
                       <button @click="$router.push(`/product/${product.prodID}`)">View More</button>
                   </template>
               </CardComp>

@@ -51,7 +51,7 @@ export default {
     },
     methods:{
         addProductFx(){
-            this.$store.dispatch('addUser', this.addProduct);
+            this.$store.dispatch('addProduct', this.addProduct);
         }
     }
 }

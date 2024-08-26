@@ -96,9 +96,12 @@ export default {
         deleteUser() {
             this.$store.dispatch('deleteUser', this.usersID)
         },
-        updateUser() {
-            this.$store.dispatch('updateUser', this.editUser);
+        deleteProduct(){
+            this.$store.dispatch('deleteProduct', this.prodID)
         }
+        // updateUser() {
+        //     this.$store.dispatch('updateUser', this.editUser);
+        // }
     },
     computed: {
         product(){
